@@ -1,0 +1,24 @@
+
+<form name="form" ng-submit="vmEC.save(form)">
+	<div class="form-group">
+	  	<input type="text" type="text" class="form-control" ng-model="vmEC.example.name" placeholder="Name" required>
+	    <div class="error" ng-show="form.name.$invalid && form.name.$touched">
+	    	<p>Please enter a name</p> 
+	    </div>
+	</div>
+	<div class="btn-group" role="group">
+	  <button type="submit" class="btn btn-primary" ng-disabled="form.$invalid">Enviar</button>
+	  <button type="button" class="btn btn-default" ng-show="vmEC.example.$id" ng-click="vmEC.remove()">Eliminar</button>
+	  <button type="button" class="btn btn-default" ng-click="vmEC.create()">Nuevo</button>
+	</div>
+</form>
+<hr>
+<pre>
+	{{vmEC.example}}
+</pre>
+<ul class="list-group">
+	<li class="list-group-item" ng-repeat="example in vmEC.examples">
+	  <a ng-click="vmEC.inspect(example.$id)" >{{ example.name }}</a>
+	</li>
+</ul>
+  
